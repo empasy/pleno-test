@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Login</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+        <!-- item email -->
+        <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input #email formControlName="email" type="email" placeholder="Correo" [class.invalid]="!loginForm.controls.email.valid &&
+          loginForm.controls.email.dirty"></ion-input>
+        </ion-item>
+        <!-- Mensaje de error si el mail no es válido -->
+        <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.dirty">
+            <p>Porfavor anota un correo válido.</p>
+        </ion-item>
+        <!-- item password -->
+        <ion-item>
+            <ion-label stacked>Password</ion-label>
+            <ion-input #password formControlName="password" type="password" placeholder="Contraseña" [class.invalid]="!loginForm.controls.password.valid && loginForm.controls.password.dirty"></ion-input>
+        </ion-item>
+        <!-- Mensaje de error si la contraseña no es válida -->
+        <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && loginForm.controls.password.dirty">
+            <p>Tu contraseña necesita mas de 6 caracteres</p>
+        </ion-item>
+        <!-- botón submit -->
+        <button ion-button block type="submit">
+            Login
+        </button>
+    </form>
+    <!-- recuperar contraseña -->
+    <button ion-button block clear (click)="goToResetPassword()">
+        Olvidé mi contraseña 🙁
+    </button>
+</ion-content>
