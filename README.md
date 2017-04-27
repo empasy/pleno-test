@@ -1,5 +1,5 @@
 # Install
 <code> git clone https://github.com/empasy/pleno-test.git </code> <br>
-<code> npm install </code>
+<code> cd pleno-test && npm install </code>
 # Start
-<code> ionic serve </code>
+<code> ionic serve </code> and dev server running on http://localhost:8100/
